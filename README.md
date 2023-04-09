@@ -1,9 +1,8 @@
-# workshop-Multivariate-analysis
+# Workshop-Multivariate-analysis
 ## Aim
 To perform Multivariate EDA on the given data set.
 
-## Explanation
-Exploratory data analysis is used to understand the messages within a dataset. This technique involves many iterative processes to ensure that the cleaned data is further sorted to better understand the useful meaning.The primary aim with exploratory analysis is to examine the data for distribution, outliers and anomalies to direct specific testing of your hypothesis.
+##Explanation Exploratory data analysis is used to understand the messages within a dataset. This technique involves many iterative processes to ensure that the cleaned data is further sorted to better understand the useful meaning.The primary aim with exploratory analysis is to examine the data for distribution, outliers and anomalies to direct specific testing of your hypothesis.
 
 ## Algorithm
 ## Step1
@@ -32,42 +31,55 @@ Save the final data set into the file.
 
 ## Types of bivariate analyis
 1)Numerical & Numerical(Scatter plot)
+
 2)Numerical & Categorical(Bar plot,Box plot,Dist plot)
-## PROGRAM
+
+## Code
+```
+Developed by : Mohanish.K
+Registration Number : 212222100028
 ```
 ```
 import pandas as pd
-df=pd.read_excel("/content/FlightInformation.xlsx")
-df
-df.info()
+import numpy as py
 import seaborn as sns
-sns.scatterplot(x=df['Dep_Time'],y=df['Arrival_Time'])
 import matplotlib.pyplot as plt
-states=df.loc[:,["Dep_Time","Price"]]
-states=states.groupby(by=["Dep_Time"]).sum().sort_values(by="Price")
-plt.figure(figsize=(17,7))
-sns.barplot(x=states.index,y="Price",data=states)
-plt.xticks(rotation = 90)
-plt.xlabel=("Dep_Time")
-plt.ylabel=("Price")
-plt.show()
-import numpy as np
-data=np.random.randint(low=5,high=110,size=(10,10))
-print("The data to be plotted:\n")
-print(data)
-h=sns.heatmap(data=data)
-plt.show
+
+df=pd.read_csv('FlightInformation (1).csv')sns.scatterplot(df['Duration'],df['Price'],hue=df['Dep_Time'])
+df
+df.head()
+df.info()
+df.describe()
+df.isnull().sum()
+df.dtypes
+
+sns.scatterplot(df['Duration'],df['Price'],hue=df['Dep_Time'])
+sns.barplot(x=df['Dep_Time'],y=df['Price'],data=df)
+df.corr()
 ```
-## OUTPUT
-![Screenshot 2023-04-04 161624](https://user-images.githubusercontent.com/113497491/229770247-037d8d1a-b8be-4a3a-a708-ac8b7170c6db.png)
+## Output
 
-![Screenshot 2023-04-04 161632](https://user-images.githubusercontent.com/113497491/229770753-6714b556-c80a-4470-bd7b-328f48d701b7.png)
+## Data Head
+![Screenshot 1](https://user-images.githubusercontent.com/119401246/229039527-9a4ae1e3-5f38-49c9-8b23-a3877c8b1425.png)
 
-![Screenshot 2023-04-04 161642](https://user-images.githubusercontent.com/113497491/229770328-d1a643ab-4cfc-47e8-9d94-a8634c35f871.png)
+## Data Information
+![Screenshot 2](https://user-images.githubusercontent.com/119401246/229039674-2e454e42-c6e7-4015-9670-b2ef729cc9b3.png)
 
-![Screenshot 2023-04-04 161700](https://user-images.githubusercontent.com/113497491/229770378-613d46ce-da64-44cf-b814-14848b948a17.png)
+## Numerical & Numerical (Scatter Plot)
+![Screenshot 3](https://user-images.githubusercontent.com/119401246/229039821-9b07d725-3363-475e-a7d3-faf031cf9687.png)
 
-![Screenshot 2023-04-04 161720](https://user-images.githubusercontent.com/113497491/229770422-7ace9704-ae78-4a5c-894c-425675502d90.png)
+## Numerical & Categorical (Bar Plot)
+![screenshot 4](https://user-images.githubusercontent.com/119401246/229039989-ba022a40-6710-42fe-87c4-019d9fe036ca.png)
 
-## RESULT
-Thus we have performed Multivariate EDA on the given data set.
+## Non-Graphical method(correlation)
+![screenshot 5](https://user-images.githubusercontent.com/119401246/229049438-026f7729-937e-4f63-919b-e88bd1d0a621.png)
+
+## Result
+Thus we have performed Multivariate EDA on the given data set.
+
+
+
+
+
+
+
